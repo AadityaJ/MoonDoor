@@ -1,5 +1,5 @@
 ### Abstraction
---- Add class wise abstraction
---- Add functional abstraction
+* Add class wise abstraction
+* Add functional abstraction
 ### Math
---- Add harder functions
+* Add harder functions
