@@ -7,15 +7,12 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 using namespace std; 
-//Create a Socket for server communication
 short SocketCreate(void){ 
         short hSocket;
         printf("Create the socket\n");
         hSocket = socket(AF_INET, SOCK_STREAM, 0);
         return hSocket;
 }
- 
-//try to connect with server
 int SocketConnect(int hSocket){
     int iRetval=-1;
     int ServerPort = 90190;
@@ -26,10 +23,7 @@ int SocketConnect(int hSocket){
     iRetval = connect(hSocket , (struct sockaddr *)&remote , sizeof(struct sockaddr_in));
     return iRetval;
 }
-// Send the data to the server and set the timeout of 20 seconds
-int SocketSend(int hSocket,char* Rqst,short lenRqst)
- 
-{
+int SocketSend(int hSocket,char* Rqst,short lenRqst){
  
     int shortRetval = -1;
     struct timeval tv;
@@ -44,9 +38,6 @@ int SocketSend(int hSocket,char* Rqst,short lenRqst)
 
     return shortRetval;
 }
- 
- 
-//receive the data from the server
 int SocketReceive(int hSocket,char* Rsp,short RvcSize){
     int shortRetval = -1;
     struct timeval tv;
@@ -63,8 +54,6 @@ int SocketReceive(int hSocket,char* Rsp,short RvcSize){
      
     return shortRetval;
 }
- 
-//main driver program
 int main(int argc , char *argv[])
 {
     int hSocket, read_size;
