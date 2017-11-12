@@ -11,7 +11,6 @@ using namespace std;
 class Client
 {
 	int cliSocket;
-
 public:
 	Client(int port);
 	int Send(string str);

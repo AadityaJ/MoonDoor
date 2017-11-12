@@ -7,14 +7,14 @@
 #include <string>
 using namespace std;
 class Server{
-	
-public:
 	int hSocket;
 	int sock;
+public:
 	Server();
 	void listen_(int);
 	string receive();
 	void send_(string);
+	void close_();
 };
 Server::Server(){
 	printf("Create the socket\n");
@@ -59,10 +59,11 @@ void Server::send_(string msg){
 			return ;
 		}
 }
+void Server::close_(){
+	close(this->sock);
+	close(this->hSocket);
+}
 int main(int argc , char *argv[]){
-	int socket_desc , sock , clientLen;
-	struct sockaddr_in server , client;
-	char client_message[200]={0};
 	Server s;
 	s.listen_(90190);
 	int sum=0;
@@ -71,7 +72,7 @@ int main(int argc , char *argv[]){
 	string rec=s.receive();
 	cout<<rec<<endl;
 	s.send_("MOE DESU\n");
-	close(s.sock);
+	s.close_();
 	sleep(1);
     return 0;
 }
