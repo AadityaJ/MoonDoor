@@ -3,7 +3,7 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-#include <unistd.h>    
+#include <unistd.h>
 #include <string>
 using namespace std;
 class Server{
@@ -17,7 +17,6 @@ public:
 	void close_();
 };
 Server::Server(){
-	printf("Create the socket\n");
 	this->hSocket = socket(AF_INET, SOCK_STREAM, 0);
 	if(hSocket==-1){cerr<<"Socket Not Properly Constructed\n";}
 }
