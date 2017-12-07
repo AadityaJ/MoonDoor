@@ -4,11 +4,11 @@ template <typename T1,typename T2>
 class state{
 	map<string,T2> mp;
 public:
-	void add(T1,T2);
+	void add(T1&,T2&);
 	T2 seek(T1);
 };
 template <typename T1, typename T2>
-void state<T1,T2>::add(T1 t1,T2 t2){
+void state<T1,T2>::add(T1 &t1,T2 &t2){
 	mp.insert(make_pair(t1.to_str(),t2));
 }
 template <typename T1, typename T2>
